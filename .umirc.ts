@@ -34,4 +34,6 @@ export default defineConfig({
   verifyCommit: {
     allowEmoji: true,
   },
+  base: '/polona/',
+  publicPath: '/polona/',
 });
