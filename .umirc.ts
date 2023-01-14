@@ -31,4 +31,7 @@ export default defineConfig({
     },
   ],
   npmClient: 'npm',
+  verifyCommit: {
+    allowEmoji: true,
+  },
 });
