@@ -3,6 +3,8 @@
   "author": "星宿君 <huxinfeng1024@qq.com>",
   "scripts": {
     "build": "max build",
+    "deploy": "npm run build && npm run deploy:dist",
+    "deploy:dist": "gh-pages -d dist",
     "dev": "max dev",
     "format": "prettier --cache --write .",
     "postinstall": "max setup",
@@ -19,6 +21,7 @@
   "devDependencies": {
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
+    "gh-pages": "^4.0.0",
     "husky": "^8.0.1",
     "lint-staged": "^13.0.3",
     "prettier": "^2.7.1",
