@@ -7,6 +7,7 @@
     "deploy:dist": "gh-pages -d dist",
     "dev": "max dev",
     "format": "prettier --cache --write .",
+    "generate": "max g",
     "postinstall": "max setup",
     "prepare": "husky install",
     "setup": "max setup",
