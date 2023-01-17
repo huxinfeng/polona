@@ -10,14 +10,4 @@
  * @param wrappers 配置路由组件的包装组件，通过包装组件可以为当前的路由组件组合进更多的功能。 比如，可以用于路由级别的权限校验
  * @doc https://umijs.org/docs/guides/routes
  */
-export default [
-  {
-    path: '/',
-    redirect: '/home',
-  },
-  {
-    name: '首页',
-    path: '/home',
-    component: './Home',
-  },
-];
+export default [];
