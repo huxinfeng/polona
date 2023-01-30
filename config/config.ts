@@ -49,4 +49,10 @@ export default defineConfig({
    * @doc https://umijs.org/docs/max/layout-menu
    */
   layout: {},
+  /**
+   * @name 网络请求配置
+   * @description 它基于 axios 和 ahooks 的 useRequest 提供了一套统一的网络请求和错误处理方案
+   * @doc https://umijs.org/docs/max/request
+   */
+  request: {},
 });

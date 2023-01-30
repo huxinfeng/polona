@@ -4,6 +4,7 @@ import {
   UngroupOutlined,
 } from '@ant-design/icons';
 import { PageContainer, ProList } from '@ant-design/pro-components';
+import { request } from '@umijs/max';
 import { useCreation } from 'ahooks';
 import {
   Badge,
@@ -32,23 +33,16 @@ interface IProjectItem {
   /** 是否发布 */
   release: boolean;
 }
-
-const data: IProjectItem[] = [
-  '语雀的天空',
-  'Ant Design',
-  '蚂蚁金服体验科技',
-  'TechUI',
-  'TechUI 2.0',
-  'Bigfish',
-  'Umi',
-  'Ant Design Pro',
-].map((item, index) => ({
-  id: index,
-  name: item,
-  tag: '官方',
-  image: 'error',
-  release: true,
-}));
+interface IParams {
+  /** 当前页 */
+  current?: number;
+  /** 页面大小 */
+  pageSize?: number;
+  /** 项目名称 */
+  name?: string;
+  /** 状态 */
+  status?: number;
+}
 
 const Project: React.FC = () => {
   // 缓存计算 column 长度
@@ -71,6 +65,13 @@ const Project: React.FC = () => {
     onClick: handleMenuClick,
   };
 
+  /** 获取可视化项目列表 */
+  const getProjectList = async (params: IParams) =>
+    request<{ data: IProjectItem[] }>(
+      'https://mock.apifox.cn/m1/2220998-0-default/project/list',
+      { params },
+    );
+
   return (
     <PageContainer
       header={{
@@ -89,7 +90,6 @@ const Project: React.FC = () => {
           defaultPageSize: 10,
           showSizeChanger: true,
         }}
-        dataSource={data}
         metas={{
           title: {
             dataIndex: 'name',
@@ -182,6 +182,7 @@ const Project: React.FC = () => {
           },
         }}
         search={{ filterType: 'light' }}
+        request={getProjectList}
         toolBarRender={() => {
           return [
             <Button key="add" icon={<PlusSquareOutlined />}>
