@@ -36,6 +36,14 @@ export default defineConfig({
    * ===========================================================================
    */
   /**
+   * @name antd插件
+   * @description 内置了 babel import 插件
+   * @doc https://umijs.org/docs/max/antd#antd
+   */
+  antd: {
+    configProvider: {},
+  },
+  /**
    * @name layout插件
    * @description 只需通过简单的配置即可拥有 Ant Design 的 Layout（ProLayout），包括导航以及侧边栏。从而做到用户无需关心布局
    * @doc https://umijs.org/docs/max/layout-menu
