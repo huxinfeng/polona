@@ -7,6 +7,7 @@
     "deploy:dist": "gh-pages -d dist",
     "dev": "max dev",
     "format": "prettier --cache --write .",
+    "format:lint": "lint-staged --quiet",
     "generate": "max g",
     "postinstall": "max setup",
     "prepare": "husky install",
