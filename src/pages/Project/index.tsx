@@ -1,22 +1,8 @@
-import {
-  EditOutlined,
-  PlusSquareOutlined,
-  UngroupOutlined,
-} from '@ant-design/icons';
+import { EditOutlined, PlusSquareOutlined, UngroupOutlined } from '@ant-design/icons';
 import { PageContainer, ProList } from '@ant-design/pro-components';
 import { request } from '@umijs/max';
 import { useCreation } from 'ahooks';
-import {
-  Badge,
-  Button,
-  Dropdown,
-  Grid,
-  Image,
-  MenuProps,
-  message,
-  Tag,
-  Tooltip,
-} from 'antd';
+import { Badge, Button, Dropdown, Grid, Image, MenuProps, message, Tag, Tooltip } from 'antd';
 
 import FallbackPng from '@/assets/images/fallback.png';
 import { items } from './configure';
@@ -48,7 +34,7 @@ const Project: React.FC = () => {
   // 缓存计算 column 长度
   const screens = Grid.useBreakpoint();
   const column = useCreation(() => {
-    return Object.entries(screens).filter((screen) => !!screen[1]).length;
+    return Object.entries(screens).filter(screen => !!screen[1]).length;
   }, [screens]);
 
   // actions 操作栏及相关触发函数
@@ -56,7 +42,7 @@ const Project: React.FC = () => {
     message.info('Click on left button.');
     console.log('click left button', e);
   };
-  const handleMenuClick: MenuProps['onClick'] = (e) => {
+  const handleMenuClick: MenuProps['onClick'] = e => {
     message.info('Click on menu item.');
     console.log('click', e);
   };
@@ -67,10 +53,7 @@ const Project: React.FC = () => {
 
   /** 获取可视化项目列表 */
   const getProjectList = async (params: IParams) =>
-    request<{ data: IProjectItem[] }>(
-      'https://mock.apifox.cn/m1/2220998-0-default/project/list',
-      { params },
-    );
+    request<{ data: IProjectItem[] }>('https://mock.apifox.cn/m1/2220998-0-default/project/list', { params });
 
   return (
     <PageContainer
@@ -99,7 +82,7 @@ const Project: React.FC = () => {
             dataIndex: 'tag',
             title: '标签',
             search: false,
-            render: (dom) => {
+            render: dom => {
               return <Tag color="#5BD8A6">{dom}</Tag>;
             },
           },
@@ -123,7 +106,7 @@ const Project: React.FC = () => {
             dataIndex: 'image',
             title: '预览图片',
             search: false,
-            render: (dom) => {
+            render: dom => {
               return (
                 <div
                   style={{
@@ -151,13 +134,7 @@ const Project: React.FC = () => {
                   text={entity.release ? '已发布' : '未发布'}
                   style={{ flex: 1 }}
                 />,
-                <Dropdown.Button
-                  key="dropdown"
-                  arrow
-                  menu={menuProps}
-                  onClick={handleButtonClick}
-                  style={{ flex: 1 }}
-                >
+                <Dropdown.Button key="dropdown" arrow menu={menuProps} onClick={handleButtonClick} style={{ flex: 1 }}>
                   <Tooltip title="编辑" placement="bottom">
                     <EditOutlined />
                   </Tooltip>
@@ -190,9 +167,9 @@ const Project: React.FC = () => {
             </Button>,
           ];
         }}
-        onItem={(record) => {
+        onItem={record => {
           return {
-            onClick: (e) => {
+            onClick: e => {
               console.log(record, e);
             },
           };
