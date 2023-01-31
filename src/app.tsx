@@ -46,6 +46,7 @@ export const antd: RuntimeAntdConfig = memo => {
   memo.theme.algorithm = theme.darkAlgorithm;
   return memo;
 };
+
 /**
  * @name 运行时layout
  * @description 通过简单的配置即可拥有 Ant Design 的 Layout（ProLayout），包括导航以及侧边栏。从而做到用户无需关心布局
@@ -59,6 +60,7 @@ export const layout: RunTimeLayoutConfig = () => {
     footerRender: () => <LayoutFooter />,
   };
 };
+
 /**
  * @name 运行时request
  * @description 配置 request 项，来为你的项目进行统一的个性化的请求设定
