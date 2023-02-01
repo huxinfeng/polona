@@ -8,6 +8,13 @@ export default defineConfig({
    * ===========================================================================
    */
   /**
+   * @name 开启hash模式
+   * @description 让 build 之后的产物包含 hash 后缀。通常用于增量发布和避免浏览器加载缓存
+   * @doc https://umijs.org/docs/api/config#hash
+   */
+  hash: true,
+
+  /**
    * @name history模式
    * @description 设置路由 history 类型
    * @doc https://umijs.org/docs/api/config#history
