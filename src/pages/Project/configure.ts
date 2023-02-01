@@ -6,6 +6,7 @@ import {
   FundViewOutlined,
   SendOutlined,
 } from '@ant-design/icons';
+import { FormattedMessage } from '@umijs/max';
 import { MenuProps } from 'antd';
 import { createElement } from 'react';
 
@@ -16,17 +17,17 @@ import { createElement } from 'react';
 const items: MenuProps['items'] = [
   {
     key: 'preview',
-    label: '预览',
+    label: createElement(FormattedMessage, { id: 'cardToolbar.preview' }),
     icon: createElement(FundViewOutlined),
   },
   {
     key: 'copy',
-    label: '克隆',
+    label: createElement(FormattedMessage, { id: 'cardToolbar.copy' }),
     icon: createElement(CopyOutlined),
   },
   {
     key: 'rename',
-    label: '重命名',
+    label: createElement(FormattedMessage, { id: 'cardToolbar.rename' }),
     icon: createElement(FormOutlined),
   },
   {
@@ -34,12 +35,12 @@ const items: MenuProps['items'] = [
   },
   {
     key: 'publish',
-    label: '发布',
+    label: createElement(FormattedMessage, { id: 'cardToolbar.publish' }),
     icon: createElement(SendOutlined),
   },
   {
     key: 'download',
-    label: '下载',
+    label: createElement(FormattedMessage, { id: 'cardToolbar.download' }),
     icon: createElement(DownloadOutlined),
     disabled: true,
   },
@@ -48,7 +49,7 @@ const items: MenuProps['items'] = [
   },
   {
     key: 'delete',
-    label: '删除',
+    label: createElement(FormattedMessage, { id: 'cardToolbar.delete' }),
     icon: createElement(DeleteOutlined),
     danger: true,
   },

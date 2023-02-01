@@ -18,7 +18,7 @@ export default [
     redirect: '/project',
   },
   {
-    name: '项目',
+    name: 'project',
     icon: 'ProjectOutlined',
     path: '/project',
     component: './Project',

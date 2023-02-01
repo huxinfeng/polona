@@ -1,0 +1,15 @@
+{
+  "page.project.ProList.title": "Visualization Project List",
+  "page.project.ProList.titleTip": "configuration of visual project list",
+  "page.project.ProList.search.projectName": "Project Name",
+  "page.project.ProList.search.tag": "Tag",
+  "page.project.ProList.search.icon": "Icon",
+  "page.project.ProList.search.previewImage": "Preview Image",
+  "page.project.ProList.search.release": "Release",
+  "page.project.ProList.search.status": "Status",
+  "page.project.ProList.status.published": "published",
+  "page.project.ProList.status.unpublished": "unpublished",
+  "page.project.ProList.create": "Create",
+
+  "η": ""
+}

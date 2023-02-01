@@ -1,6 +1,6 @@
 import { EditOutlined, PlusSquareOutlined, UngroupOutlined } from '@ant-design/icons';
 import { PageContainer, ProList } from '@ant-design/pro-components';
-import { request } from '@umijs/max';
+import { FormattedMessage, request, useIntl } from '@umijs/max';
 import { useCreation } from 'ahooks';
 import { Badge, Button, Dropdown, Grid, Image, MenuProps, message, Tag, Tooltip } from 'antd';
 
@@ -55,6 +55,23 @@ const Project: React.FC = () => {
   const getProjectList = async (params: IParams) =>
     request<{ data: IProjectItem[] }>('https://mock.apifox.cn/m1/2220998-0-default/project/list', { params });
 
+  /**
+   * 国际化
+   */
+  const intl = useIntl();
+  const intl_title = intl.formatMessage({ id: 'page.project.ProList.title' });
+  const intl_titleTip = intl.formatMessage({ id: 'page.project.ProList.titleTip' });
+  // metas
+  const intl_projectName = intl.formatMessage({ id: 'page.project.ProList.search.projectName' });
+  const intl_tag = intl.formatMessage({ id: 'page.project.ProList.search.tag' });
+  const intl_icon = intl.formatMessage({ id: 'page.project.ProList.search.icon' });
+  const intl_previewImage = intl.formatMessage({ id: 'page.project.ProList.search.previewImage' });
+  const intl_release = intl.formatMessage({ id: 'page.project.ProList.search.release' });
+  const intl_status = intl.formatMessage({ id: 'page.project.ProList.search.status' });
+  const intl_published = intl.formatMessage({ id: 'page.project.ProList.status.published' });
+  const intl_unpublished = intl.formatMessage({ id: 'page.project.ProList.status.unpublished' });
+  const intl_edit = intl.formatMessage({ id: 'cardToolbar.edit' });
+
   return (
     <PageContainer
       header={{
@@ -63,8 +80,8 @@ const Project: React.FC = () => {
     >
       <ProList<IProjectItem>
         rowKey="id"
-        headerTitle="可视化项目列表"
-        tooltip="可视化列表的配置"
+        headerTitle={intl_title}
+        tooltip={intl_titleTip}
         grid={{
           gutter: 30,
           column: column,
@@ -76,11 +93,11 @@ const Project: React.FC = () => {
         metas={{
           title: {
             dataIndex: 'name',
-            title: '项目名称',
+            title: intl_projectName,
           },
           subTitle: {
             dataIndex: 'tag',
-            title: '标签',
+            title: intl_tag,
             search: false,
             render: dom => {
               return <Tag color="#5BD8A6">{dom}</Tag>;
@@ -88,7 +105,7 @@ const Project: React.FC = () => {
           },
           avatar: {
             dataIndex: 'icon',
-            title: '图标',
+            title: intl_icon,
             search: false,
             render: () => {
               return (
@@ -104,7 +121,7 @@ const Project: React.FC = () => {
           },
           content: {
             dataIndex: 'image',
-            title: '预览图片',
+            title: intl_previewImage,
             search: false,
             render: dom => {
               return (
@@ -122,7 +139,7 @@ const Project: React.FC = () => {
           },
           actions: {
             dataIndex: 'release',
-            title: '是否发布',
+            title: intl_release,
             search: false,
             cardActionProps: 'actions',
             render: (_, entity) => {
@@ -131,11 +148,11 @@ const Project: React.FC = () => {
                   key="badge"
                   status="processing"
                   color={entity.release ? 'green' : 'yellow'}
-                  text={entity.release ? '已发布' : '未发布'}
+                  text={entity.release ? intl_published : intl_unpublished}
                   style={{ flex: 1 }}
                 />,
                 <Dropdown.Button key="dropdown" arrow menu={menuProps} onClick={handleButtonClick} style={{ flex: 1 }}>
-                  <Tooltip title="编辑" placement="bottom">
+                  <Tooltip title={intl_edit} placement="bottom">
                     <EditOutlined />
                   </Tooltip>
                 </Dropdown.Button>,
@@ -144,15 +161,15 @@ const Project: React.FC = () => {
           },
           // 自己扩展的字段，主要用于筛选，不在列表中显示
           status: {
-            title: <Badge status="processing" text="状态" />,
+            title: <Badge status="processing" text={intl_status} />,
             valueType: 'select',
             valueEnum: {
               0: {
-                text: '未发布',
+                text: intl_unpublished,
                 status: 'unpublished',
               },
               1: {
-                text: '已发布',
+                text: intl_published,
                 status: 'published',
               },
             },
@@ -163,7 +180,7 @@ const Project: React.FC = () => {
         toolBarRender={() => {
           return [
             <Button key="add" icon={<PlusSquareOutlined />}>
-              新建
+              <FormattedMessage id="page.project.ProList.create" />
             </Button>,
           ];
         }}

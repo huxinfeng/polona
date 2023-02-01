@@ -1,0 +1,15 @@
+{
+  "page.project.ProList.title": "可视化项目列表",
+  "page.project.ProList.titleTip": "可视化项目列表的配置",
+  "page.project.ProList.search.projectName": "项目名称",
+  "page.project.ProList.search.tag": "标签",
+  "page.project.ProList.search.icon": "图标",
+  "page.project.ProList.search.previewImage": "预览图片",
+  "page.project.ProList.search.release": "是否发布",
+  "page.project.ProList.search.status": "状态",
+  "page.project.ProList.status.published": "已发布",
+  "page.project.ProList.status.unpublished": "未发布",
+  "page.project.ProList.create": "新建",
+
+  "η": ""
+}
