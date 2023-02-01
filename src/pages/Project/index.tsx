@@ -1,6 +1,6 @@
 import { EditOutlined, PlusSquareOutlined, UngroupOutlined } from '@ant-design/icons';
 import { PageContainer, ProList } from '@ant-design/pro-components';
-import { FormattedMessage, request, useIntl } from '@umijs/max';
+import { request, useIntl } from '@umijs/max';
 import { useCreation } from 'ahooks';
 import { Badge, Button, Dropdown, Grid, Image, MenuProps, message, Tag, Tooltip } from 'antd';
 
@@ -71,6 +71,8 @@ const Project: React.FC = () => {
   const intl_published = intl.formatMessage({ id: 'page.project.ProList.status.published' });
   const intl_unpublished = intl.formatMessage({ id: 'page.project.ProList.status.unpublished' });
   const intl_edit = intl.formatMessage({ id: 'cardToolbar.edit' });
+  // 创建按钮
+  const intl_create = intl.formatMessage({ id: 'page.project.ProList.create' });
 
   return (
     <PageContainer
@@ -180,7 +182,7 @@ const Project: React.FC = () => {
         toolBarRender={() => {
           return [
             <Button key="add" icon={<PlusSquareOutlined />}>
-              <FormattedMessage id="page.project.ProList.create" />
+              {intl_create}
             </Button>,
           ];
         }}
