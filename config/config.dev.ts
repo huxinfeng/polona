@@ -1,5 +1,6 @@
 import { defineConfig } from '@umijs/max';
 
+import { PolonaEnvEnum } from '../src/enums/envEnum';
 import { getPolonaEnv } from '../src/utils/env';
 import proxy from './proxy';
 
@@ -16,5 +17,5 @@ export default defineConfig({
    * @description proxy 功能仅在 dev 时有效
    * @see https://umijs.org/docs/api/config#proxy
    */
-  proxy: proxy[getPolonaEnv() || 'dev'],
+  proxy: proxy[getPolonaEnv() || PolonaEnvEnum.DEV],
 });
