@@ -1,5 +1,8 @@
 import { defineConfig } from '@umijs/max';
 
+import { getPolonaEnv } from '../src/utils/env';
+import proxy from './proxy';
+
 export default defineConfig({
   /**
    * @name 开启clickToComponent模式
@@ -7,4 +10,11 @@ export default defineConfig({
    * @doc https://umijs.org/docs/api/config#clicktocomponent
    */
   clickToComponent: {},
+
+  /**
+   * @name 代理
+   * @description proxy 功能仅在 dev 时有效
+   * @see https://umijs.org/docs/api/config#proxy
+   */
+  proxy: proxy[getPolonaEnv() || 'dev'],
 });
