@@ -35,13 +35,6 @@ export default defineConfig({
   phantomDependency: {},
 
   /**
-   * @name 配置webpack的publicPath
-   * @description 生产环境通过配合hash路由可以访问
-   * @doc https://umijs.org/docs/api/config#publicpath
-   */
-  publicPath: './',
-
-  /**
    * @name manifest
    * @description 开启 build 时生成额外的 manifest 文件，用于描述产物
    * @doc https://umijs.org/docs/api/config#manifest

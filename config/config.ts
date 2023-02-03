@@ -1,5 +1,6 @@
 import { defineConfig } from '@umijs/max';
 
+import { isDev } from '../src/utils/env';
 import routes from './routes';
 
 export default defineConfig({
@@ -30,6 +31,13 @@ export default defineConfig({
    * @doc https://umijs.org/docs/api/config#npmclient
    */
   npmClient: 'npm',
+
+  /**
+   * @name 配置webpack的publicPath
+   * @description 生产环境通过配合 hash 路由可以访问
+   * @doc https://umijs.org/docs/api/config#publicpath
+   */
+  publicPath: isDev() ? '/' : './',
 
   /**
    * @name 路由的配置，不在路由中引入的文件不会编译
