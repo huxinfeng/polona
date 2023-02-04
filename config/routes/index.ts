@@ -10,7 +10,7 @@ import { MenuDataItem } from '@ant-design/pro-components';
  * @param component 配置 location 和 path 匹配后用于渲染的 React 组件路径。可以是绝对路径，也可以是相对路径，如果是相对路径，会从 src/pages 开始找起
  * @param routes 配置子路由，通常在需要为多个路径增加 layout 组件时使用
  * @param wrappers 配置路由组件的包装组件，通过包装组件可以为当前的路由组件组合进更多的功能。 比如，可以用于路由级别的权限校验
- * @doc https://umijs.org/docs/guides/routes
+ * @see https://umijs.org/docs/guides/routes
  */
 export default [
   {
