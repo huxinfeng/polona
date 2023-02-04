@@ -39,7 +39,7 @@ interface IResponseStructure {
 /**
  * @name 运行时antd
  * @description 通过简单的配置即可拥有 Ant Design 的 Layout（ProLayout），包括导航以及侧边栏。从而做到用户无需关心布局
- * @see hhttps://umijs.org/docs/max/antd#%E8%BF%90%E8%A1%8C%E6%97%B6%E9%85%8D%E7%BD%AE
+ * @see https://umijs.org/docs/max/antd#%E8%BF%90%E8%A1%8C%E6%97%B6%E9%85%8D%E7%BD%AE
  */
 export const antd: RuntimeAntdConfig = memo => {
   memo.theme ||= {};
