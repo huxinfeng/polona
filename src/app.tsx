@@ -3,10 +3,10 @@ import { theme } from 'antd';
 
 import LayoutFooter from '@/layouts/LayoutFooter';
 
+import { TimeOutConst } from '@/constants/requestConst';
 import SvgLogo from '@/icons/logo.svg';
 import { errorConfig, requestInterceptors, responseInterceptors } from '@/services/request';
-import { TimeOutConst } from './constants/requestConst';
-import { isProd } from './utils/env';
+import { isProd } from '@/utils/env';
 
 /**
  * ===========================================================================
