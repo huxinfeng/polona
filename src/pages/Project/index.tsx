@@ -1,34 +1,12 @@
 import { EditOutlined, PlusSquareOutlined, UngroupOutlined } from '@ant-design/icons';
 import { PageContainer, ProList } from '@ant-design/pro-components';
-import { request, useIntl } from '@umijs/max';
+import { useIntl } from '@umijs/max';
 import { useCreation } from 'ahooks';
 import { Badge, Button, Dropdown, Grid, Image, MenuProps, message, Tag, Tooltip } from 'antd';
 
 import FallbackPng from '@/assets/images/fallback.png';
+import { getProjectListAPI } from '@/services/pages/project.api';
 import { items } from './configure';
-
-interface IProjectItem {
-  /** 项目ID编号 */
-  id: number;
-  /** 项目名称 */
-  name: string;
-  /** 标签 */
-  tag: string;
-  /** 预览图 */
-  image: string;
-  /** 是否发布 */
-  release: boolean;
-}
-interface IParams {
-  /** 当前页 */
-  current?: number;
-  /** 页面大小 */
-  pageSize?: number;
-  /** 项目名称 */
-  name?: string;
-  /** 状态 */
-  status?: number;
-}
 
 const Project: React.FC = () => {
   // 缓存计算 column 长度
@@ -50,10 +28,6 @@ const Project: React.FC = () => {
     items,
     onClick: handleMenuClick,
   };
-
-  /** 获取可视化项目列表 */
-  const getProjectList = async (params: IParams) =>
-    request<{ data: IProjectItem[] }>('https://mock.apifox.cn/m1/2220998-0-default/project/list', { params });
 
   /**
    * 国际化
@@ -80,7 +54,7 @@ const Project: React.FC = () => {
         title: '',
       }}
     >
-      <ProList<IProjectItem>
+      <ProList<API.IProjectItemResponse>
         rowKey="id"
         headerTitle={intl_title}
         tooltip={intl_titleTip}
@@ -178,7 +152,7 @@ const Project: React.FC = () => {
           },
         }}
         search={{ filterType: 'light' }}
-        request={getProjectList}
+        request={getProjectListAPI}
         toolBarRender={() => {
           return [
             <Button key="add" icon={<PlusSquareOutlined />}>
