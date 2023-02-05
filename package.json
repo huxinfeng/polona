@@ -5,14 +5,19 @@
     "build": "max build",
     "deploy": "npm run build && npm run deploy:dist",
     "deploy:dist": "gh-pages -d dist",
-    "dev": "max dev",
+    "dev": "npm run start:dev",
     "format": "prettier --cache --write .",
     "format:lint": "lint-staged --quiet",
     "generate": "max g",
     "postinstall": "max setup",
     "prepare": "husky install",
     "setup": "max setup",
-    "start": "npm run dev"
+    "start": "npm run start:mock-cloud",
+    "start:dev": "POLONA_ENV=dev max dev",
+    "start:mock-cloud": "POLONA_ENV=mock-cloud max dev",
+    "start:mock-local": "POLONA_ENV=mock-local max dev",
+    "start:prod": "POLONA_ENV=prod max dev",
+    "start:test": "POLONA_ENV=test max dev"
   },
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
