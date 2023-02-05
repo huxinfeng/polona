@@ -4,6 +4,8 @@ import { message, theme } from 'antd';
 import LayoutFooter from '@/layouts/LayoutFooter';
 
 import SvgLogo from '@/icons/logo.svg';
+import { TimeOutConst } from './constants/requestConst';
+import { isProd } from './utils/env';
 
 // 错误状态码
 enum ErrorCodeEnum {
@@ -68,7 +70,8 @@ export const layout: RunTimeLayoutConfig = () => {
  */
 export const request: RequestConfig = {
   // 统一的请求设定
-  timeout: 1000,
+  timeout: TimeOutConst,
+  baseURL: isProd() ? API_PRE_URL : undefined,
   headers: { 'X-Requested-With': 'XMLHttpRequest' },
 
   // 错误处理

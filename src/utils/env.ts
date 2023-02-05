@@ -8,6 +8,13 @@ export const isDev = () => {
 };
 
 /**
+ * * 判断 NODE 环境是否是生产
+ */
+export const isProd = () => {
+  return process.env.NODE_ENV === EnvEnum.PROD;
+};
+
+/**
  * * 获取 polona 环境
  */
 export const getPolonaEnv = () => {

@@ -1,5 +1,7 @@
 import { IConfig } from '@umijs/preset-umi';
 
+import { BaseURLEnum } from '../../src/enums/requestEnum';
+
 /**
  * @name 代理
  * @description 代理配置
@@ -10,39 +12,34 @@ export default {
   dev: {
     '/api': {
       // 要代理的地址
-      target: '',
+      target: BaseURLEnum.DEV,
       // 配置了这个可以从 http 代理到 https
       // 依赖 origin 的功能可能需要这个，比如 cookie
       changeOrigin: true,
-      pathRewrite: { '^/api': '' },
     },
   },
   test: {
     '/api': {
-      target: '',
+      target: BaseURLEnum.TEST,
       changeOrigin: true,
-      pathRewrite: { '^/api': '' },
     },
   },
   prod: {
     '/api': {
-      target: '',
+      target: BaseURLEnum.PROD,
       changeOrigin: true,
-      pathRewrite: { '^/api': '' },
     },
   },
   'mock-local': {
     '/api': {
-      target: 'http://localhost:4523/m1/2220998-0-default',
+      target: BaseURLEnum.MOCK_LOCAL,
       changeOrigin: true,
-      pathRewrite: { '^/api': '' },
     },
   },
   'mock-cloud': {
     '/api': {
-      target: 'https://mock.apifox.cn/m1/2220998-0-default',
+      target: BaseURLEnum.MOCK_CLOUD,
       changeOrigin: true,
-      pathRewrite: { '^/api': '' },
     },
   },
 } as Record<TPOLONA_ENV, IConfig['proxy']>;

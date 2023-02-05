@@ -1,5 +1,7 @@
 import { defineConfig } from '@umijs/max';
 
+import { BaseURLEnum } from '../src/enums/requestEnum';
+
 export default defineConfig({
   /**
    * @name 代码打包拆分
@@ -18,6 +20,15 @@ export default defineConfig({
    */
   deadCode: {
     exclude: ['src/favicon.ico'],
+  },
+
+  /**
+   * @name 全局变量
+   * @description 设置代码中的可用变量
+   * @see https://umijs.org/docs/api/config#define
+   */
+  define: {
+    API_PRE_URL: BaseURLEnum.MOCK_CLOUD,
   },
 
   /**
