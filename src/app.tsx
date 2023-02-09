@@ -1,11 +1,12 @@
+import { Settings as LayoutSettings } from '@ant-design/pro-components';
 import { RequestConfig, RuntimeAntdConfig, RunTimeLayoutConfig } from '@umijs/max';
-import { theme } from 'antd';
 
+import ChildrenRender from '@/components/ChildrenRender';
 import LayoutFooter from '@/layouts/LayoutFooter';
 
 import { TimeOutConst } from '@/constants/requestConst';
-import SvgLogo from '@/icons/logo.svg';
 import { errorConfig, requestInterceptors, responseInterceptors } from '@/services/request';
+import layoutSettings from '@/settings/layoutSettings';
 import { isProd } from '@/utils/env';
 
 /**
@@ -21,8 +22,20 @@ import { isProd } from '@/utils/env';
  */
 export const antd: RuntimeAntdConfig = memo => {
   memo.theme ||= {};
-  memo.theme.algorithm = theme.darkAlgorithm;
   return memo;
+};
+
+/**
+ * @name 运行时初始状态
+ * @description @umi/max 内置了全局初始状态管理插件，允许您快速构建并在组件内获取 Umi 项目全局的初始状态。
+ * @see https://umijs.org/docs/max/data-flow#%E5%85%A8%E5%B1%80%E5%88%9D%E5%A7%8B%E7%8A%B6%E6%80%81
+ */
+export const getInitialState = async (): Promise<{
+  layoutSettings: Partial<LayoutSettings>;
+}> => {
+  return {
+    layoutSettings,
+  };
 };
 
 /**
@@ -30,12 +43,19 @@ export const antd: RuntimeAntdConfig = memo => {
  * @description 通过简单的配置即可拥有 Ant Design 的 Layout（ProLayout），包括导航以及侧边栏。从而做到用户无需关心布局
  * @see https://umijs.org/docs/max/layout-menu#%E8%BF%90%E8%A1%8C%E6%97%B6%E9%85%8D%E7%BD%AE
  */
-export const layout: RunTimeLayoutConfig = () => {
+export const layout: RunTimeLayoutConfig = ({ initialState, setInitialState }) => {
   return {
     title: 'Polona',
-    logo: SvgLogo,
-    layout: 'mix',
     footerRender: () => <LayoutFooter />,
+    childrenRender: (childrenDom, childrenProps) => (
+      <ChildrenRender
+        childrenDom={childrenDom}
+        childrenProps={childrenProps}
+        initialState={initialState}
+        setInitialState={setInitialState}
+      />
+    ),
+    ...initialState?.layoutSettings,
   };
 };
 

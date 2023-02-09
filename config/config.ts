@@ -71,6 +71,13 @@ export default defineConfig({
   },
 
   /**
+   * @name 一个全局的初始数据流，可以用它在插件之间共享数据
+   * @description 可以用来存放一些全局的数据，比如用户信息，或者一些全局的状态，全局初始状态在整个 Umi 项目的最开始创建
+   * @see https://umijs.org/docs/max/data-flow
+   */
+  initialState: {},
+
+  /**
    * @name layout插件
    * @description 只需通过简单的配置即可拥有 Ant Design 的 Layout（ProLayout），包括导航以及侧边栏。从而做到用户无需关心布局
    * @see https://umijs.org/docs/max/layout-menu
@@ -82,6 +89,13 @@ export default defineConfig({
    * @see https://umijs.org/docs/max/i18n
    */
   locale: {},
+
+  /**
+   * @name 数据流插件
+   * @description 数据流插件
+   * @see https://umijs.org/docs/max/data-flow
+   */
+  model: {},
 
   /**
    * @name 网络请求配置
