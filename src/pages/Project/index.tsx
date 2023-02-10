@@ -2,7 +2,7 @@ import { EditOutlined, PlusSquareOutlined, UngroupOutlined } from '@ant-design/i
 import { PageContainer, ProList } from '@ant-design/pro-components';
 import { useIntl } from '@umijs/max';
 import { useCreation } from 'ahooks';
-import { Badge, Button, Dropdown, Grid, Image, MenuProps, message, Tag, Tooltip } from 'antd';
+import { Badge, Button, Dropdown, Grid, Image, Tag, Tooltip } from 'antd';
 
 import FallbackPng from '@/assets/images/fallback.png';
 import { getProjectListAPI } from '@/services/pages/project.api';
@@ -16,17 +16,13 @@ const Project: React.FC = () => {
   }, [screens]);
 
   // actions 操作栏及相关触发函数
-  const handleButtonClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-    message.info('Click on left button.');
-    console.log('click left button', e);
+  const handleButtonClick = (id: number) => {
+    // TODO 实现前往 chart 页面
+    console.log(id);
   };
-  const handleMenuClick: MenuProps['onClick'] = e => {
-    message.info('Click on menu item.');
-    console.log('click', e);
-  };
-  const menuProps = {
-    items,
-    onClick: handleMenuClick,
+  const handleMenuClick = (key: string, id: number) => {
+    // TODO 实现预览、发布、删除等等逻辑，使用 switch、和枚举
+    console.log(key, id);
   };
 
   /**
@@ -127,7 +123,16 @@ const Project: React.FC = () => {
                   text={entity.release ? intl_published : intl_unpublished}
                   style={{ flex: 1 }}
                 />,
-                <Dropdown.Button key="dropdown" arrow menu={menuProps} onClick={handleButtonClick} style={{ flex: 1 }}>
+                <Dropdown.Button
+                  key="dropdown"
+                  arrow
+                  menu={{
+                    items,
+                    onClick: e => handleMenuClick(e.key, entity.id),
+                  }}
+                  onClick={handleButtonClick.bind(null, entity.id)}
+                  style={{ flex: 1 }}
+                >
                   <Tooltip title={intl_edit} placement="bottom">
                     <EditOutlined />
                   </Tooltip>
