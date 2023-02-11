@@ -3,6 +3,7 @@ import { RequestConfig, RuntimeAntdConfig, RunTimeLayoutConfig } from '@umijs/ma
 
 import ChildrenRender from '@/components/ChildrenRender';
 import LayoutFooter from '@/layouts/LayoutFooter';
+import LayoutHeaderContent from '@/layouts/LayoutHeaderContent';
 
 import { TimeOutConst } from '@/constants/requestConst';
 import { errorConfig, requestInterceptors, responseInterceptors } from '@/services/request';
@@ -46,6 +47,7 @@ export const getInitialState = async (): Promise<{
 export const layout: RunTimeLayoutConfig = ({ initialState, setInitialState }) => {
   return {
     title: 'Polona',
+    headerContentRender: () => <LayoutHeaderContent />,
     footerRender: () => <LayoutFooter />,
     childrenRender: (childrenDom, childrenProps) => (
       <ChildrenRender

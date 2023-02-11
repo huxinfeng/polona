@@ -1,0 +1,19 @@
+{
+  "chart.header.tools.chartComponent": "图表组件",
+  "chart.header.tools.layersControl": "图层控制",
+  "chart.header.tools.detailedSettings": "详情设置",
+
+  "chart.header.tools.back": "后退",
+  "chart.header.tools.forward": "前进",
+
+  "chart.header.tools.save": "保存",
+
+  "chart.header.tools.preview": "预览",
+  "chart.header.tools.publish": "发布",
+
+  "chart.header.title.workspace": "工作空间 -",
+  "chart.header.title.placeholder": "请输入项目名称",
+  "chart.header.title.newProject": "新项目",
+
+  "η": ""
+}

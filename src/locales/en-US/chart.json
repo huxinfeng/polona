@@ -1,0 +1,19 @@
+{
+  "chart.header.tools.chartComponent": "chart component",
+  "chart.header.tools.layersControl": "layers control",
+  "chart.header.tools.detailedSettings": "detailed settings",
+
+  "chart.header.tools.back": "back",
+  "chart.header.tools.forward": "forward",
+
+  "chart.header.tools.save": "save",
+
+  "chart.header.tools.preview": "preview",
+  "chart.header.tools.publish": "publish",
+
+  "chart.header.title.workspace": "workspace -",
+  "chart.header.title.placeholder": "please enter the project name.",
+  "chart.header.title.newProject": "new projects",
+
+  "η": ""
+}

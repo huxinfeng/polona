@@ -23,4 +23,10 @@ export default [
     path: '/project',
     component: './Project',
   },
+  {
+    path: '/chart/:id',
+    component: './Chart',
+    footerRender: false,
+    menuRender: false,
+  },
 ] satisfies MenuDataItem[];
