@@ -1,5 +1,7 @@
 import { MenuDataItem } from '@ant-design/pro-components';
 
+import { PathEnum } from '../../src/enums/routerEnum';
+
 /**
  * @name umi的路由配置
  * @description  路由配置
@@ -15,16 +17,16 @@ import { MenuDataItem } from '@ant-design/pro-components';
 export default [
   {
     path: '/',
-    redirect: '/project',
+    redirect: PathEnum.PROJECT,
   },
   {
     name: 'project',
     icon: 'ProjectOutlined',
-    path: '/project',
+    path: PathEnum.PROJECT,
     component: './Project',
   },
   {
-    path: '/chart/:id',
+    path: PathEnum.CHART,
     component: './Chart',
     footerRender: false,
     menuRender: false,
